@@ -14,7 +14,8 @@ import { DivarContext } from '../data/DivarContext';
 import { IAdvertise, IDivarState, ILocationState, ISuggestion } from '../data/interfaces';
 import { DivarReducerActionTypes } from '../data/divarReducer';
 import { fetchAdv } from '../api';
-import { CircularProgress } from '@material-ui/core';
+// import { CircularProgress } from '@material-ui/core';
+import LoadingSpinner from '../Loading/LoadingSpinner';
 import Button from '../components/Button';
 
 const Main: React.FunctionComponent = () => {
@@ -112,9 +113,13 @@ const Main: React.FunctionComponent = () => {
     if (element) {
         observer.observe(element as Element);
     }
-    if (loading) {
-        return <CircularProgress />;
-    }
+    // if (loading) {
+    //     return (
+    //         <Box position="relative">
+    //             <LoadingSpinner />
+    //         </Box>
+    //     );
+    // }
 
     return (
         <Box component="main" className={classes.main}>
@@ -152,11 +157,16 @@ const Main: React.FunctionComponent = () => {
                                         <div ref={lastObjectRef}></div>
                                     </>
                                 );
-                            return <Card key={item.token} adv={item} />;
+
+                            return (
+                                <>
+                                    <Card key={item.token} adv={item} />{' '}
+                                </>
+                            );
                         })}
                 </Grid>
-                <Box m="3rem" display={loading ? 'flex' : 'none'} justifyContent="center">
-                    <CircularProgress />
+                <Box position="relative">
+                    <LoadingSpinner />
                 </Box>
             </Box>
         </Box>
@@ -178,6 +188,7 @@ const useStyles = makeStyles({
         backgroundColor: 'var(--bg-clr-main)',
         order: 1,
         flex: 1,
+        position: 'relative',
     },
     mainHeader: {
         width: '100%',

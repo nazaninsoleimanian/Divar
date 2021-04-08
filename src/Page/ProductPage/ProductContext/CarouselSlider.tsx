@@ -5,17 +5,14 @@ import logo from '../../../logo/logo.svg';
 import { Box, createStyles, makeStyles, Theme } from '@material-ui/core';
 import classes from '*.module.css';
 import Picture from '../../../Main/Picture';
-// interface ImagesType {
-//     imageUrl?: string;
-// }
-// [];
+
 const CarouselSlider: React.FunctionComponent = () => {
     const classes = useStyles();
 
     const { pageData, getPageData } = useProductContext();
     const images =
         'widgets' in pageData
-            ? pageData.widgets.images.map((imageUrl) => ({
+            ? pageData.widgets.images.map((imageUrl: string) => ({
                   imageUrl,
               }))
             : [];
@@ -23,7 +20,7 @@ const CarouselSlider: React.FunctionComponent = () => {
 
     return (
         <>
-            <Carousel
+            {/* <Carousel
                 showArrows={true}
                 verticalSwipe="standard"
                 className={classes.carouselContainer}
@@ -35,7 +32,16 @@ const CarouselSlider: React.FunctionComponent = () => {
                         </Box>
                     );
                 })}
-            </Carousel>
+            </Carousel> */}
+            <Box className={classes.carouselContainer}>
+                {images.map((url) => {
+                    return (
+                        <Box className={classes.carouselList}>
+                            <Picture img={url.imageUrl} />
+                        </Box>
+                    );
+                })}
+            </Box>
         </>
     );
 };

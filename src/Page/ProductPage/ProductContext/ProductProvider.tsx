@@ -1,4 +1,5 @@
-import { CircularProgress } from '@material-ui/core';
+// import { CircularProgress } from '@material-ui/core';
+import LoadingSpinner from '../../../Loading/LoadingSpinner';
 import React, {
     createContext,
     ReactNode,
@@ -46,7 +47,7 @@ const ProductProvider: React.FunctionComponent<{ children: ReactNode }> = ({
         fetchProduct();
     }, [token]);
     if (loading) {
-        return <CircularProgress />;
+        return <LoadingSpinner />;
     }
     return (
         <ProductContext.Provider value={{ pageData, getPageData }}>

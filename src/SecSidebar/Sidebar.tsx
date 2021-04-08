@@ -10,6 +10,7 @@ import SidebarGoBack from './SidebarGoBack';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import { DivarContext } from '../data/DivarContext';
 import SidebarMiddleLevel from './SidebarMiddleLevel';
+import SidebarThirdLevel from './SidebarThirdLevel';
 const Sidebar: React.FunctionComponent = () => {
     const classes = useStyles();
     const { children } = preLoad.search.rootCat;
@@ -78,7 +79,19 @@ const Sidebar: React.FunctionComponent = () => {
                                                             <SidebarMiddleLevel
                                                                 middleCategoty={item}
                                                             />
-                                                            <h1>hi</h1>
+                                                            {item.children.map((item) => {
+                                                                if (
+                                                                    item.slug ===
+                                                                    match?.params.category
+                                                                )
+                                                                    return (
+                                                                        <SidebarThirdLevel
+                                                                            thirdLevelCategoty={
+                                                                                item
+                                                                            }
+                                                                        />
+                                                                    );
+                                                            })}
                                                         </>
                                                     );
                                             })}
