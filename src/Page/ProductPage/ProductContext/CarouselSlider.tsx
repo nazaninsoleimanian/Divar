@@ -48,7 +48,12 @@ const CarouselSlider: React.FunctionComponent = () => {
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         carouselContainer: {
-            width: '100%',
+            position: 'relative',
+            width: '48.8rem',
+            height: '48.8rem',
+            flex: '0 0 48.8rem',
+            backgroundColor: 'var(--bg-clr-hover)',
+            overflow: 'hidden',
             borderRadius: '.4rem',
         },
         carouselList: {
