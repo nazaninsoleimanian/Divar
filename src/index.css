@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'Vazir';
+    src: local('Vazir'), url(./font-vazir/Vazir.woff) format('woff');
+}
+
+:root {
+    --bg-clr-main: #fff;
+    --border-main: 1px solid rgba(34, 36, 38, 0.15);
+    --font-clr-primary: rgba(0, 0, 0, 0.87);
+    --font-clr-secondary: rgba(0, 0, 0, 0.56);
+    --bg-clr-hover: rgba(0, 0, 0, 0.2);
+    --box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.2);
+}
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: 'Vazir';
+    min-width: 320px;
+    font-weight: 700;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: var(--font-clr-primary);
+    background: #fff;
+    overflow-x: hidden;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+}
